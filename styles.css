@@ -48,6 +48,11 @@ nav {
     padding: 1em;
     font-weight: 500;
     height: calc(100vh - 6.5em);
+    overflow-y: scroll;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
 }
 
 li {
