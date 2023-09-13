@@ -17,10 +17,11 @@ h1 {
     font-size: 1em;
 }
 
-header {
+header a {
     display: flex;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
 }
 
 header:hover i {
@@ -37,7 +38,7 @@ header i {
 
 main {
     display: grid;
-    grid-template-columns: 220px 1fr 440px;
+    grid-template-columns: 200px auto auto;
     gap: 0.5em;
     padding: 0.5em 0;
 }
@@ -47,16 +48,12 @@ nav {
     border-radius: 6px;
     padding: 1em;
     font-weight: 500;
-    height: calc(100vh - 6.5em);
+    height: calc(100vh - 8.5em);
     overflow-y: scroll;
 }
 
 nav::-webkit-scrollbar {
     display: none;
-}
-
-li {
-    list-style: none;
 }
 
 .nav-list {
@@ -83,6 +80,11 @@ li {
     color: #fff;
 }
 
+.nav-list li {
+    font-size: 0.7em;
+}
+
+
 .nav-list-item > i {
     display: flex;
     align-items: center;
@@ -91,8 +93,10 @@ li {
     margin-right: 10px;
 }
 
-.nav-list-item > p {
-    font-size: 0.8em;
+.nav-list-item > a {
+    
+    text-decoration: none;
+    color: #fff
 }
 
 section {
@@ -100,7 +104,7 @@ section {
     border-radius: 6px;
     padding: 1em;
     overflow-y: scroll;
-    height: calc(100vh - 6.5em);
+    height: calc(100vh - 8.5em);
     position: relative;
 }
 
@@ -120,9 +124,14 @@ section::-webkit-scrollbar {
 }
 
 .artistas-container {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 0.6em;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.artistas-container li {
+    margin-left: 0.7em;
 }
 
 .artista-item {
@@ -133,6 +142,8 @@ section::-webkit-scrollbar {
     align-items: center;
     position: relative;
     transition: all ease-in-out 0.3s;
+    margin-left: 0.7em;
+    position: relative;
 }
 
 .artista-item:hover {
@@ -140,9 +151,14 @@ section::-webkit-scrollbar {
     cursor: pointer;
 }
 
+li::marker {
+    font-size: 0.6em;
+    color: #fff;
+}
+
 .artista-item img {
+    position: absolute;
     height: 100%;
-    object-fit: cover;
     border-radius: 4px 0 0 4px;
 }
 
@@ -182,9 +198,10 @@ h2 {
 
 .artista-item h3 {
     font-size: 0.7em;
-    margin-left: 1em;
+    margin-left: 5.5em;
     color: white;
     font-weight: 500;
+    margin-right: 1.5em;
 }
 
 table {
@@ -222,7 +239,7 @@ footer {
     width: calc(100% - 1em);
 }
 
-.footer-container {
+.footer-container-up {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -230,7 +247,7 @@ footer {
     padding-bottom: 0.5em;
 }
 
-.footer-container img {
+.footer-container-up img {
     width: 40px;
     margin-right: 10px;
 }
@@ -372,6 +389,20 @@ footer {
     color: white;
 }
 
+.footer-container-bottom {
+    margin-left: -1em;
+    width: calc(100% + 2em);
+    font-size: 0.6em;
+    padding: 1em;
+    background-color: #121212;
+    text-align: center;
+    text-decoration: none;
+}
+
+.footer-container-bottom a {
+    color: #ffffffb3;
+}
+
 @media only screen and (max-width: 1020px) {
     main {
         grid-template-columns: 1fr;
@@ -383,13 +414,10 @@ footer {
 
     .nav-list {
         flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1.2em;
+        justify-content: space-between;
     }
 
-    .nav-list-item:nth-child(4),
-    .nav-list-item:nth-child(5), 
-    .nav-list-item:nth-child(6) {
+    .nav-list-item > i {
         display: none;
     }
 
@@ -408,13 +436,13 @@ footer {
         padding: 0 0.2em;
     }
 
-    .footer-container img {
+    .footer-container-up img {
         margin-right: 0;
     }
 
     body {
         overflow: scroll;
-        padding-bottom: 110px;
+        padding-bottom: 170px;
     }
 
     section {
@@ -425,7 +453,20 @@ footer {
         display: none;
     }
 
-    .footer-container {
+    .footer-container-up {
         padding: 0.8em 0;
+    }
+
+    .footer-container-bottom p {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-list-item p {
+        font-size: 0.8em;
+    }
+
+    .nav-list-item a {
+        font-size: 0.8em;
     }
 }
